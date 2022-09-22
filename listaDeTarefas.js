@@ -1,4 +1,5 @@
 
+(() => {
 //Função de criar nova tarefa
 const criarTarefa = (event) =>{
 
@@ -27,6 +28,7 @@ const criarTarefa = (event) =>{
   novaTarefa.innerHTML = paragrafo;
 
   novaTarefa.appendChild(funcaoDoBotaoConcluir());
+  novaTarefa.appendChild(funcaoDoBotaoDeletar());
   
   //Inserindo a li como filha da ul
   lista.appendChild(novaTarefa);
@@ -63,6 +65,25 @@ const concluirTarefa = (event) =>{
   tarefacompleta.classList.toggle("done");
 }
 
+const funcaoDoBotaoDeletar = () =>{
+  const botaoDeletar = document.createElement("button");
+  botaoDeletar.innerText = "Deletar";
+
+  botaoDeletar.addEventListener("click", deletarTarefa)
+
+  return botaoDeletar;
+}
+
+const deletarTarefa = (event) =>{
+  const botaoDeletar = event.target;
+  
+  const tarefa = botaoDeletar.parentElement;
+  tarefa.remove();
+
+  return botaoDeletar;
+}
+
+}) ()
 
 
 
