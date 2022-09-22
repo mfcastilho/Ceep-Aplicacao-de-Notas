@@ -1,5 +1,7 @@
 
-(() => {
+import funcaoDoBotaoConcluir from "./componentes/concluiTarefa.js";
+import funcaoDoBotaoDeletar from "./componentes/deletaTarefa.js";
+
 //Função de criar nova tarefa
 const criarTarefa = (event) =>{
 
@@ -44,46 +46,11 @@ const novaTarefa = document.querySelector('[data-form-button]');
 //Evento do botão novaTarefa
 novaTarefa.addEventListener("click", criarTarefa);
 
-const funcaoDoBotaoConcluir = ()=>{
-  const botaoConcluir = document.createElement("button");
-  botaoConcluir.classList.add("check-button");
-  botaoConcluir.innerText = "Concluir";
-  botaoConcluir.addEventListener("click", concluirTarefa);
-  return botaoConcluir;
-}
 
-const concluirTarefa = (event) =>{
 
-  //o target mostra o elemento que foi manipulado no evento, ou seja, o alvo do evento
-  const botaoConcluir = event.target;
 
-  //o parentElemento pega o elemento pai de um outro elemento
-  //no nosso caso, iremos pegar o pai do botaoConcluir que é a li
-  const tarefacompleta = botaoConcluir.parentElement;
 
-  //o método toggle: se a classe existir naquele elemento, ele a remove, se não existir ele a adiciona
-  tarefacompleta.classList.toggle("done");
-}
 
-const funcaoDoBotaoDeletar = () =>{
-  const botaoDeletar = document.createElement("button");
-  botaoDeletar.innerText = "Deletar";
-
-  botaoDeletar.addEventListener("click", deletarTarefa)
-
-  return botaoDeletar;
-}
-
-const deletarTarefa = (event) =>{
-  const botaoDeletar = event.target;
-  
-  const tarefa = botaoDeletar.parentElement;
-  tarefa.remove();
-
-  return botaoDeletar;
-}
-
-}) ()
 
 
 
