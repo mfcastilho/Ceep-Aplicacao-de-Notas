@@ -58,6 +58,9 @@ const concluirTarefa = (event) =>{
   //o parentElemento pega o elemento pai de um outro elemento
   //no nosso caso, iremos pegar o pai do botaoConcluir que é a li
   const tarefacompleta = botaoConcluir.parentElement;
+
+  //o método toggle: se a classe existir naquele elemento, ele a remove, se não existir ele a adiciona
+  tarefacompleta.classList.toggle("done");
 }
 
 
